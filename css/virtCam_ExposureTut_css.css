@@ -1,0 +1,323 @@
+/**
+*css file for the exposure tutorial
+
+*/
+
+
+
+body{
+    display:flex;
+    flex-flow:column nowrap;
+    align-items:center;
+    background-color:cadetblue;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #000;
+    margin:0 auto;
+}
+
+header#expTutHeader {
+
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+header#expTutHeader h1 {
+
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#expTutWrapper{
+
+    display:flex;
+    flex-flow: column wrap;
+    align-items:center;
+    /*background-image: url("../imgs/stipple_bg.png");
+    background-repeat: repeat;*/
+    background-color:#777;
+    max-width:600px;
+    min-width:200px;
+}
+
+/*buttons*/
+#expTutWrapper button{
+
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    font-weight:bold;
+    color:#222;
+}
+
+#expTutWrapper button[disabled], #expTutWrapper button[disabled]:hover, #expTutWrapper button[disabled]:active{
+
+    background-color: #ddd;
+    color: #888;
+    cursor: not-allowed;
+}
+
+#expTutWrapper button:hover {
+
+    background-color: #fff;
+    color:#000;
+    /*transition: background-color 0.3s ease;*/
+    
+}
+
+#expTutWrapper button:active {
+
+    background-color: #333;
+    color:#fff;
+}
+
+#expTutWrapper button:focus {
+
+    outline: 2px dotted #222;
+}
+
+
+
+/*image holder element*/
+#sceneSubject{
+
+    display:flex;
+    flex-flow: column wrap;
+    align-items:center;
+    justify-content: center;
+    background-color:transparent;
+    width:98%;
+    min-width:140px;
+    min-height:140px;
+    max-width:250px;
+    margin-bottom:15px;
+    
+    /*scrolling*/
+    position:sticky;
+    top:2px;
+}
+
+.setting_label{
+
+    display:flex;
+    flex-flow:row wrap;
+    align-items:center;
+    justify-content:space-between;
+    font-size:.95em;
+    font-family: Arial, sans-serif;
+    font-weight:bold;
+    background-color:transparent;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+
+#sceneSettingsHolder{
+
+    background-color:#fff;
+    margin-left:15px;
+    margin-right:15px;
+}
+
+/*#isoButtons, #apertureButtons, #focalLengthsButtons, #shutterSpeedButtons {
+
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color:tan;
+}*/
+
+/*init? temp?*/
+/*button#_18{
+
+    background-color:#fff;
+    color:#000;
+}*/
+
+#expTutWrapper button#snapButton{
+
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:15px;
+    margin-bottom:10px;
+    width:60%;
+}
+
+/*radio buttons*/
+#isoRadioButtons, #focalLengthsRadioButtons, #shutterSpeedRadioButtons{
+
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color:tan;
+}
+
+.isoRadioBtn, .focalLengthsRadioBtn, .shutterSpeedRadioBtn{
+
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /*background-color:purple;*/
+    
+}
+
+#apertureSetting{
+
+    margin-top:15px;
+    margin-bottom:15px;
+    background-color:tan;
+}
+
+#apertureSelect{
+
+    width:100px;
+    padding:10px;
+    border-radius:6px;
+    border:5px solid #ccc;
+    margin-top:3px;
+    margin-bottom:3px;
+    margin-left:5px;
+}
+
+#apertureSelect option{
+
+    font-size:1.2em;
+    font-weight:bold;
+    margin-top:2px;
+    margin-bottom:2px;
+    height:40px;
+}
+
+.isoRadioBtn input[type="radio"], .focalLengthsRadioBtn input[type="radio"], .shutterSpeedRadioBtn input[type="radio"]{
+
+    margin-right:5px;
+    height:40px;
+}
+
+.isoRadioBtn label, .focalLengthsRadioBtn label, .shutterSpeedRadioBtn label{
+
+    display:flex;
+    flex-flow:row nowrap;
+    align-items:center;
+    justify-content:center;
+    font-size:1.3em;
+    font-family: Arial, sans-serif;
+    font-weight:bold;
+    background-color:transparent;
+    width:100px;
+    border-radius:5px;
+}
+
+/*modal*/
+#resultModalWrapper{
+
+    display:flex;
+    flex-flow:column nowrap;
+    /*align-items:center;*/
+    justify-content:center;
+    background-color:pink;
+    position:relative;
+    top:-310%;
+    width:80%;
+    height:80%;
+    z-index:1000;
+    border-radius:10px;
+    border:4px solid #333;
+    /*glow*/
+    box-shadow: 0 0 20px 20px #333;
+}
+
+#resultModalWrapper header{
+
+    display:flex;
+    flex-flow:row nowrap;
+    align-items:center;
+    justify-content:space-between;
+    background-color:lightblue;
+    border-bottom:2px solid #333;
+    border-radius:4px 4px 0 0;
+    margin:0;
+    width:100%;
+    height:50px;
+}
+
+#resultModalWrapper h2{
+
+    font-size:1.5em;
+    font-weight:bold;
+    text-align:center;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:10px;
+}
+
+#resultModalWrapper button{
+
+    width:45px;
+    height:45px;
+    margin:3px;
+    background-color:#f1f1f1;
+    border:1px solid #ccc;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    font-family:Arial, sans-serif;
+    font-weight:bold;
+    color:#222;
+    z-index:2;
+}
+
+
+#resultModalWrapper p{
+
+    font-size:1em;
+    font-weight:bold;
+    /*text-align:center;*/
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#resultSettings, #resultExplainer {
+
+    padding:5px;
+}
+
+#expTutCover{
+
+    display:none;
+    position:relative;
+    background-color:rgba(0,0,0,0.8);
+    opacity:.3;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:999;
+}
+
+
+

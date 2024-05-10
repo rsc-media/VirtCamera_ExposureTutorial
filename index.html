@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/virtCam_ExposureTut_css.css">
+    <script src="js/virtCam_ExposureTut_js.js"></script>
+    <title>::ExposureTriangle</title>
+</head>
+
+<body>
+    <header id="expTutHeader">
+        <h1>Exposure Triangle Tutorial</h1>
+    </header>
+
+    <div id="expTutWrapper">
+
+        <!--scene or subject to be snapped-->
+        <div id="sceneSubject">
+
+            <svg height="100%" width="100%" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                <!--<use id="bioptical scope" xlink:href="#microScope" x="0" y="0" ></use>-->
+
+                <image id="takePictureScene" title="Scene being photographed" class="scene_setting" height="100%" width="100%"
+                    xlink:href="imgs/hummingbird.gif" x="0" y="0" />
+            </svg>
+        </div>
+
+
+        <!--abstracted controls to set ISO, Aperture, Shutter Speed-->
+        <div id="sceneSettingsHolder">
+            <div id="isoControl">
+
+                <label class="setting_label" id="isoControlLabel" for="isoButtons">ISO</label>
+                <!--<div id="isoButtons">
+                        <button id="iso_200">200</button>
+                        <button id="iso_400">400</button>
+                        <button id="iso_800">800</button>
+                        <button id="iso_1600">1600</button>
+                    </div>-->
+                <!--radio buttons-->
+                <div id="isoRadioButtons">
+                    <div class="isoRadioBtn">
+                        <label for="iso_100">
+                            <input type="radio" id="iso_100" name="iso" value="100" />
+                            100
+                        </label>
+                    </div>
+                    <div class="isoRadioBtn">
+                        <label for="iso_200">
+                            <input type="radio" id="iso_200" name="iso" value="200" checked />
+                            200
+                        </label>
+                    </div>
+                    <div class="isoRadioBtn">
+                        <label for="iso_400">
+                            <input type="radio" id="iso_400" name="iso" value="400" />
+                            400
+                        </label>
+                    </div>
+                    <div class="isoRadioBtn">
+                        <label for="iso_800">
+                            <input type="radio" id="iso_800" name="iso" value="800">
+                            800
+                        </label>
+                    </div>
+                    <div class="isoRadioBtn">
+                        <label for="iso_1600">
+                            <input type="radio" id="iso_1600" name="iso" value="1600">
+                            1600
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="apertureControl">
+                <div class="setting_label">
+                    <label id="apertureControlLabel" for="apertureButtons">Aperture</label>
+                </div>
+                <div id="apertureSetting">
+                    <select id="apertureSelect" name="apertureVals" size="4">
+                        <option value="3.5">f/3.5</option>
+                        <option value="4.0" selected>f/4.0</option>
+                        <option value="4.5">f/4.5</option>
+                        <option value="5.0">f/5.0</option>
+                        <option value="5.6">f/5.6</option>
+                        <option value="6.3">f/6.3</option>
+                        <option value="7.1">f/7.1</option>
+                        <option value="8.0">f/8.0</option>
+                        <option value="9.0">f/9.0</option>
+                        <option value="10.0">f/10.0</option>
+                        <option value="11.0">f/11.0</option>
+                        <option value="13.0">f/13.0</option>
+                        <option value="14.0">f/14.0</option>
+                        <option value="16.0">f/16.0</option>
+                        <option value="18.0">f/18.0</option>
+                        <option value="20.0">f/20.0</option>
+                        <option value="22.0">/22.0</option>
+                    </select>
+                </div>
+            </div>
+            <div id="shutterSpeedControl">
+                <div class="setting_label">
+                    <label id="shutterSpeedControlLabel" for="shutterSpeedControlSlider">Shutter Speed (seconds)</label>
+                </div>
+                <!--<div id="shutterSpeedButtons">
+                        <button id="sp_a">1/125</button>
+                        <button id="sp_b">1/250</button>
+                        <button id="sp_c">1/500</button>
+                        <button id="sp_d">1/1000</button>
+                        <button id="sp_e">1/2000</button>
+                        <button id="sp_f">1/4000</button>
+                    </div>-->
+                <div id="shutterSpeedRadioButtons">
+                    <div class="shutterSpeedRadioBtn">
+                        <label for="sp_1_125">
+                            <input type="radio" id="sp_1_125" name="ss" value="1/125" />
+                            1/125s
+                        </label>
+                    </div>
+                    <div class="shutterSpeedRadioBtn">
+                        <label for="sp_1_250">
+                            <input type="radio" id="sp_1_250" name="ss" value="1/250"  />
+                            1/250s
+                        </label>
+                    </div>
+                    <div class="shutterSpeedRadioBtn">
+                        <label for="sp_1_500">
+                            <input type="radio" id="sp_1_500" name="ss" value="1/500" />
+                            1/500s
+                        </label>
+                    </div>
+                    <div class="shutterSpeedRadioBtn">
+                        <label for="sp_1_1000">
+                            <input type="radio" id="sp_1_1000" name="ss" value="1/1000">
+                            1/1000s
+                        </label>
+                    </div>
+                    <div class="shutterSpeedRadioBtn">
+                        <label for="sp_1_2000">
+                            <input type="radio" id="fsp_1_2000" name="ss" value="1/2000" checked>
+                            1/2000s
+                        </label>
+                    </div>
+                    <div class="shutterSpeedRadioBtn">
+                        <label for="sp_1_4000">
+                            <input type="radio" id="sp_1_4000" name="ss" value="1/4000">
+                            1/4000s
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="focalControl">
+                <div class="setting_label">
+                    <label id="focalLengthsLabel" for="currentFocalLength">Focal Length (mm)</label>
+                    <div id="currentFocalLength">18</div>
+                </div>
+                <!--<div id="focalLengthsButtons">
+                        <button id="_18">18mm</button>
+                        <button id="_24" disabled>24mm</button>
+                        <button id="_35" disabled>35mm</button>
+                        <button id="_45" disabled>45mm</button>
+                        <button id="_55" disabled>55mm</button>
+                    </div>-->
+                <div id="focalLengthsRadioButtons">
+                    <div class="focalLengthsRadioBtn">
+                        <label for="fc_18">
+                            <input type="radio" id="fc_18" name="focal" value="18" checked />
+                            18
+                        </label>
+                    </div>
+                    <div class="focalLengthsRadioBtn">
+                        <label for="fc_24">
+                            <input type="radio" id="fc_24" name="focal" value="24" disabled />
+                            24
+                        </label>
+                    </div>
+                    <div class="focalLengthsRadioBtn">
+                        <label for="fc_35">
+                            <input type="radio" id="fc_35" name="focal" value="35" disabled />
+                            35
+                        </label>
+                    </div>
+                    <div class="focalLengthsRadioBtn">
+                        <label for="fc_45">
+                            <input type="radio" id="fc_45" name="focal" value="45" disabled>
+                            45
+                        </label>
+                    </div>
+                    <div class="focalLengthsRadioBtn">
+                        <label for="fc_55">
+                            <input type="radio" id="fc_55" name="focal" value="55" disabled>
+                            55mm
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--End sceneSettingsHolder-->
+        <button id="snapButton" class="submitSnap">SNAP</button>
+    </div>
+    <!--cover-->
+    <div id="expTutCover" aria-hidden="true"></div>
+</body>
+
+</html>
