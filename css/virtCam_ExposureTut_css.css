@@ -1,15 +1,14 @@
 /**
-*css file for the exposure tutorial
+*css file for Rio Salado College AJS exposure tutorial
 
 */
-
 
 
 body{
     display:flex;
     flex-flow:column nowrap;
     align-items:center;
-    background-color:cadetblue;
+    background-color:#291d02;
     font-family: Arial, sans-serif;
     font-size: 16px;
     color: #000;
@@ -74,7 +73,6 @@ header#expTutHeader h1 {
     background-color: #fff;
     color:#000;
     /*transition: background-color 0.3s ease;*/
-    
 }
 
 #expTutWrapper button:active {
@@ -89,40 +87,50 @@ header#expTutHeader h1 {
 }
 
 
-
 /*image holder element*/
 #sceneSubject{
 
     display:flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     align-items:center;
     justify-content: center;
     background-color:transparent;
-    width:98%;
+    /*width:98%;*/
+    width:100%;
     min-width:140px;
     min-height:140px;
-    max-width:250px;
+    max-width:570px;
+    margin-top:5px;
     margin-bottom:15px;
-    
+
     /*scrolling*/
     position:sticky;
     top:2px;
 }
 
+#sceneSubject img{
+
+    /*width:98%;*/
+    width:100%;
+    height:auto;
+    border:2px solid #333;
+    border-radius:5px;
+}
+/*end image holder element*/
+
+/*settings holder properties*/
 .setting_label{
 
     display:flex;
-    flex-flow:row wrap;
+    flex-flow:row nowrap;
     align-items:center;
     justify-content:space-between;
     font-size:.95em;
     font-family: Arial, sans-serif;
     font-weight:bold;
-    background-color:transparent;
     padding-left:5px;
     padding-right:5px;
 }
-
 
 #sceneSettingsHolder{
 
@@ -130,25 +138,6 @@ header#expTutHeader h1 {
     margin-left:15px;
     margin-right:15px;
 }
-
-/*#isoButtons, #apertureButtons, #focalLengthsButtons, #shutterSpeedButtons {
-
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color:tan;
-}*/
-
-/*init? temp?*/
-/*button#_18{
-
-    background-color:#fff;
-    color:#000;
-}*/
 
 #expTutWrapper button#snapButton{
 
@@ -159,6 +148,111 @@ header#expTutHeader h1 {
     width:60%;
 }
 
+/*Exposure meter*/
+#exposureMeter{
+
+    display:flex;
+    flex-flow:column nowrap;
+    align-items:center;
+    justify-content:center;
+    padding-top:10px;
+    /*padding-bottom:10px;*/
+    /*margin-top:10px;
+    margin-bottom:20px;*/
+    background-color:#fff;
+
+    position:sticky;
+    top:320px;
+}
+
+#exposureMeter > .setting_label{
+
+    font-size:1.2em;
+}
+
+#currentExposure{
+
+    display:flex;
+    flex-flow:row nowrap;
+    align-items:center;
+    justify-content:center;
+    margin-right:3px;
+    margin-left:3px;
+    width:50px; /*holds the number steady when it changes*/
+}
+
+#exposureSectionsWrapper{
+
+    display:flex;
+    flex-flow:column nowrap;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    margin-top: 15px;
+    /*margin-bottom: 15px;*/
+    background-color:#000;
+}
+
+#exposureMeterSections{
+
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:space-between;
+    align-items:center;
+    width:60%;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:10px;
+    margin-right:10px;
+    background-color:white;
+    border-radius:5px;
+    margin-right:3px;
+    margin-left:3px;
+}
+
+#exposureMeterSections div{
+
+    display:flex;
+    flex-flow:column nowrap;
+    align-items:center;
+    justify-content:center;
+    width:30%;
+    height:29px;
+}
+
+.exp_section_active{
+
+    background-color:palegoldenrod;
+}
+
+.exp_sectionSetting{
+
+    background-color:gold;
+}
+
+.exp_number{
+
+    font-size:1.2em;
+    font-weight:bold;
+}
+
+#exp_arrowleft{
+
+    padding-left:3px
+}
+
+#exp_arrowright{
+
+    padding-right:3px;
+}
+
+#exp_0{
+
+    font-size:1.4em;
+    font-weight:bold;
+}
+/*end exposure meter*/
+
 /*radio buttons*/
 #isoRadioButtons, #focalLengthsRadioButtons, #shutterSpeedRadioButtons{
 
@@ -168,7 +262,7 @@ header#expTutHeader h1 {
     align-items: center;
     width: 100%;
     margin-top: 15px;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     background-color:tan;
 }
 
@@ -180,14 +274,17 @@ header#expTutHeader h1 {
     align-items: center;
     margin-top: 15px;
     margin-bottom: 15px;
-    /*background-color:purple;*/
-    
 }
 
-#apertureSetting{
+#isoControl, #apertureControl, #shutterSpeedControl, #focalControl{
 
     margin-top:15px;
-    margin-bottom:15px;
+}
+
+#apertureSettings{
+
+    margin-top:15px;
+    /*margin-bottom:15px;*/
     background-color:tan;
 }
 
@@ -208,7 +305,16 @@ header#expTutHeader h1 {
     font-weight:bold;
     margin-top:2px;
     margin-bottom:2px;
-    height:40px;
+    height:30px;
+    display:flex;
+    flex-flow:row nowrap;
+    align-items:center;
+}
+
+#apertureSelect option[disabled]{
+
+    color:#888;
+    background-color:#ddd;
 }
 
 .isoRadioBtn input[type="radio"], .focalLengthsRadioBtn input[type="radio"], .shutterSpeedRadioBtn input[type="radio"]{
@@ -229,6 +335,11 @@ header#expTutHeader h1 {
     background-color:transparent;
     width:100px;
     border-radius:5px;
+}
+
+.focalLengthsRadioBtn label[data-disabled], .isoRadioBtn label[data-disabled], .shutterSpeedRadioBtn label[data-disabled]{
+
+    color:#888;
 }
 
 /*modal*/
@@ -317,6 +428,18 @@ header#expTutHeader h1 {
     width:100%;
     height:100%;
     z-index:999;
+}
+
+.sr-only{
+
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    border:0;
 }
 
 
