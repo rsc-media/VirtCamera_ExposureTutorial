@@ -108,7 +108,7 @@ header#expTutHeader h1 {
     top:2px;
 }
 
-#sceneSubject img{
+#sceneSubject img, #sceneSubject video{
 
     /*width:98%;*/
     width:100%;
