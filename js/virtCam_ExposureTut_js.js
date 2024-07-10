@@ -566,21 +566,25 @@ function tutorialSetUp() {
                 zero.classList.add("exp_sectionSetting");
                 break;
             case "+0.1":
+            case "0.1":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_sectionSetting");
                 break;
             case "+0.2":
+            case "0.2":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_section_active");
                 pos0_2.classList.add("exp_sectionSetting");
                 break;
             case "+1.0":
+            case "1.0":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_section_active");
                 pos0_2.classList.add("exp_section_active");
                 pos1.classList.add("exp_sectionSetting");
                 break;
             case "+1.1":
+            case "1.1":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_section_active");
                 pos0_2.classList.add("exp_section_active");
@@ -589,6 +593,7 @@ function tutorialSetUp() {
 
                 break;
             case "+1.2":
+            case "1.2":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_section_active");
                 pos0_2.classList.add("exp_section_active");
@@ -597,6 +602,7 @@ function tutorialSetUp() {
                 pos1_2.classList.add("exp_sectionSetting");
                 break;
             case "+2.0":
+            case "2.0":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_section_active");
                 pos0_2.classList.add("exp_section_active");
@@ -606,6 +612,7 @@ function tutorialSetUp() {
                 pos2.classList.add("exp_sectionSetting");
                 break;
             case "+2.1":
+            case "2.1":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_section_active");
                 pos0_2.classList.add("exp_section_active");
@@ -616,6 +623,7 @@ function tutorialSetUp() {
                 pos2_1.classList.add("exp_sectionSetting");
                 break;
             case "+2.2":
+            case "2.2":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_section_active");
                 pos0_2.classList.add("exp_section_active");
@@ -627,6 +635,7 @@ function tutorialSetUp() {
                 pos2_2.classList.add("exp_sectionSetting");
                 break;
             case "+3.0":
+            case "3.0":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_section_active");
                 pos0_2.classList.add("exp_section_active");
@@ -640,6 +649,7 @@ function tutorialSetUp() {
 
                 break;
             case "+3.0+":
+            case "3.0+":
                 zero.classList.add("exp_section_active");
                 pos0_1.classList.add("exp_section_active");
                 pos0_2.classList.add("exp_section_active");
