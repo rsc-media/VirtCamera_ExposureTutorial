@@ -66,12 +66,12 @@
                 </div>
                 <!--radio buttons-->
                 <div id="isoRadioButtons">
-                    <div class="isoRadioBtn">
+                    <!--<div class="isoRadioBtn">
                         <label for="iso_100">
                             <input type="radio" id="iso_100" name="iso" value="100" />
                             100
                         </label>
-                    </div>
+                    </div>-->
                     <div class="isoRadioBtn">
                         <label for="iso_200">
                             <input type="radio" id="iso_200" name="iso" value="200" checked />
@@ -85,17 +85,29 @@
                         </label>
                     </div>
                     <div class="isoRadioBtn">
+                        <label for="iso_500">
+                            <input type="radio" id="iso_500" name="iso" value="500" />
+                            500
+                        </label>
+                    </div>
+                    <div class="isoRadioBtn">
+                        <label for="iso_640">
+                            <input type="radio" id="iso_640" name="iso" value="640" />
+                            640
+                        </label>
+                    </div>
+                    <div class="isoRadioBtn">
                         <label for="iso_800" data-disabled>
                             <input type="radio" id="iso_800" name="iso" value="800" disabled>
                             800
                         </label>
                     </div>
-                    <div class="isoRadioBtn">
+                    <!--<div class="isoRadioBtn">
                         <label for="iso_1600" data-disabled>
                             <input type="radio" id="iso_1600" name="iso" value="1600" disabled>
                             1600
                         </label>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div id="apertureControl">
@@ -104,7 +116,14 @@
                 </div>
                 <div id="apertureSettings">
                     <select id="apertureSelect" name="apertureVals" size="4">
-                        <option value="3.5" selected>f/3.5</option>
+                        <option value="1.4">f/1.4</option>
+                        <option value="1.6">f/1.6</option>
+                        <option value="1.8">f/1.8</option>
+                        <option value="2.2">f/2.2</option>
+                        <option value="2.5">f/2.5</option>
+                        <option value="2.8">f/2.8</option>
+                        <option value="3.2">f/3.2</option>
+                        <option value="3.5">f/3.5</option>
                         <option value="4.0">f/4.0</option>
                         <option value="4.5">f/4.5</option>
                         <option value="5.0">f/5.0</option>
@@ -112,15 +131,15 @@
                         <option value="6.3">f/6.3</option>
                         <option value="7.1">f/7.1</option>
                         <option value="8.0">f/8.0</option>
-                        <option value="9.0" disabled>f/9.0</option>
-                        <option value="10.0" disabled>f/10.0</option>
-                        <option value="11.0" disabled>f/11.0</option>
-                        <option value="13.0" disabled>f/13.0</option>
-                        <option value="14.0" disabled>f/14.0</option>
-                        <option value="16.0" disabled>f/16.0</option>
-                        <option value="18.0" disabled>f/18.0</option>
+                        <option value="9.0">f/9.0</option>
+                        <option value="10.0">f/10.0</option>
+                        <option value="11.0">f/11.0</option>
+                        <option value="13.0">f/13.0</option>
+                        <option value="14.0">f/14.0</option>
+                        <option value="16.0">f/16.0</option>
+                        <!--<option value="18.0" disabled>f/18.0</option>
                         <option value="20.0" disabled>f/20.0</option>
-                        <option value="22.0" disabled>/22.0</option>
+                        <option value="22.0" disabled>/22.0</option>-->
                     </select>
                 </div>
             </div>
@@ -145,6 +164,12 @@
                         <label for="sp_1_500">
                             <input type="radio" id="sp_1_500" name="ss" value="1/500" />
                             1/500s
+                        </label>
+                    </div>
+                    <div class="shutterSpeedRadioBtn">
+                        <label for="sp_1_800">
+                            <input type="radio" id="sp_1_800" name="ss" value="1/800" />
+                            1/800s
                         </label>
                     </div>
                     <div class="shutterSpeedRadioBtn">
