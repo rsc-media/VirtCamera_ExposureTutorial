@@ -6,130 +6,28 @@
 
 function tutorialSetUp() {
     console.log('running tutorialSetUp');
-	//interface settings vars
+	
+    //Fetch the images json file
+    const jsonFilePath = 'https://rsc-media.github.io/VirtCamera_ExposureTutorial/images.json';
+    let imagesData;
 
-    //use this object to search for now but replace later with a dynamic fetch of a precreated json file in the imgs folder that contains all the folder image file names
-    //how did jason create the json file in the css dist folder that i fetched in the m_ca_themeSwitcher.js file?
-	const testObjOfFiles = {
+    //Fetch the JSON file
+    fetch(jsonFilePath)
+        .then(response => response.json())
+        .then(data => {
+            
+            imagesData = data;
+        })
+        .catch(error => {
+            console.error('Error fetching VirtCamera_ExposureTutorial images JSON file:', error);
+        });
 
-        /*imgs:["200_4.0_1.250_18.jpg", "200_4.0_1.2000_18.jpg"]*/
-        imgs:
-        [
-            "100_1.4_1.125_+1.1.JPG",
-            "100_1.4_1.250_+0.2.JPG",
-            "100_1.4_1.500_-0.1.JPG",
-            "100_1.4_1.1000_-1.1.JPG",
-            "100_1.4_1.2000_-2.1.JPG",
-            "100_1.4_1.4000_-3+.JPG",
-            "100_3.5_1.125_-1.0.JPG",
-            "100_3.5_1.250_-2.0.JPG",
-            "100_3.5_1.500_-3.0.JPG",
-            "100_3.5_1.1000_-3.0+.JPG",
-            "100_3.5_1.2000_-3.0+.JPG",
-            "100_3.5_1.4000_-3.0+.JPG",
-            "100_4.0_1.125_-1.1.JPG",
-            "100_4.0_1.250_-2.1.JPG",
-            "100_4.0_1.500_-3.0+.JPG",
-            "100_4.0_1.1000_-3.0+.JPG",
-            "100_4.0_1.2000_-3.0+.JPG",
-            "100_4.0_1.4000_-3.0+.JPG",
-            "100_4.5_1.125_-1.2.JPG",
-            "100_4.5_1.250_-2.2.JPG",
-            "100_4.5_1.500_-3.0+.JPG",
-            "100_4.5_1.1000_-3.0+.JPG",
-            "100_4.5_1.2000_-3.0+.JPG",
-            "100_4.5_1.4000_-3.0+.JPG",
-            "100_5.0_1.125_-2.0.JPG",
-            "100_5.0_1.250_-3.0.JPG",
-            "100_5.0_1.500_-3.0+.JPG",
-            "100_5.0_1.1000_-3.0+.JPG",
-            "100_5.0_1.2000_-3.0+.JPG",
-            "100_5.0_1.4000_-3.0+.JPG",
-            "100_5.6_1.125_-2.1.JPG",
-            "100_5.6_1.250_-3.0+.JPG",
-            "100_5.6_1.500_-3.0+.JPG",
-            "100_5.6_1.1000_-3.0+.JPG",
-            "100_5.6_1.2000_-3.0+.JPG",
-            "100_5.6_1.4000_-3.0+.JPG",
-            "100_6.3_1.125_-2.2.JPG",
-            "100_6.3_1.250_-3.0+.JPG",
-            "100_6.3_1.500_-3.0+.JPG",
-            "100_6.3_1.1000_-3.0+.JPG",
-            "100_6.3_1.2000_-3.0+.JPG",
-            "100_6.3_1.4000_-3.0+.JPG",
-            "100_7.1_1.125_-3.0.JPG",
-            "100_7.1_1.250_-3.0+.JPG",
-            "100_7.1_1.500_-3.0+.JPG",
-            "100_7.1_1.1000_-3.0+.JPG",
-            "100_7.1_1.2000_-3.0+.JPG",
-            "100_7.1_1.4000_-3.0+.JPG",
-            "100_8.0_1.125_-3.0+.JPG",
-            "100_8.0_1.250_-3.0+.JPG",
-            "100_8.0_1.500_-3.0+.JPG",
-            "100_8.0_1.1000_-3.0+.JPG",
-            "100_8.0_1.2000_-3.0+.JPG",
-            "100_8.0_1.4000_-3.0+.JPG",
-            "200_3.5_1.125_+0.1.JPG",
-            "200_3.5_1.250_-1.0.JPG",
-            "200_3.5_1.500_-2.0.JPG",
-            "200_3.5_1.1000_-3.0.JPG",
-            "200_3.5_1.2000_-3.0+.JPG",
-            "200_3.5_1.4000_-3.0+.JPG",
-            "200_4.0_1.125_-0.1.JPG",
-            "200_4.0_1.250_-1.1.JPG",
-            "200_4.0_1.500_-2.1.JPG",
-            "200_4.0_1.1000_-3.0+.JPG",
-            "200_4.0_1.2000_-3.0+.JPG",
-            "200_4.0_1.4000_-3.0+.JPG",
-            "200_4.5_1.125_-0.2.JPG",
-            "200_4.5_1.250_-1.2.JPG",
-            "200_4.5_1.500_-2.2.JPG",
-            "200_4.5_1.1000_-3.0+.JPG",
-            "200_4.5_1.2000_-3.0+.JPG",
-            "200_4.5_1.4000_-3.0+.JPG",
-            "200_5.0_1.125_-1.0.JPG",
-            "200_5.0_1.250_-2.0.JPG",
-            "200_5.0_1.500_-3.0.JPG",
-            "200_5.0_1.1000_-3.0+.JPG",
-            "200_5.0_1.2000_-3.0+.JPG",
-            "200_5.0_1.4000_-3.0+.JPG",
-            "200_5.6_1.125_-1.1.JPG",
-            "200_5.6_1.250_-2.1.JPG",
-            "200_5.6_1.500_-3.0+.JPG",
-            "200_5.6_1.1000_-3.0+.JPG",
-            "200_5.6_1.2000_-3.0+.JPG",
-            "200_5.6_1.4000_-3.0+.JPG",
-            "200_6.3_1.125_-1.2.JPG",
-            "200_6.3_1.250_-2.2.JPG",
-            "200_6.3_1.500_-3.0+.JPG",
-            "200_6.3_1.1000_-3.0+.JPG",
-            "200_6.3_1.2000_-3.0+.JPG",
-            "200_6.3_1.4000_-3.0+.JPG",
-            "200_7.1_1.125_-2.0.JPG",
-            "200_7.1_1.250_-3.0.JPG",
-            "200_7.1_1.500_-3.0+.JPG",
-            "200_7.1_1.1000_-3.0+.JPG",
-            "200_7.1_1.2000_-3.0+.JPG",
-            "200_7.1_1.4000_-3.0+.JPG",
-            "200_8.0_1.125_-2.1.JPG",
-            "200_8.0_1.250_-3.0+.JPG",
-            "200_8.0_1.500_-3.0+.JPG",
-            "200_8.0_1.1000_-3.0+.JPG",
-            "200_8.0_1.2000_-3.0+.JPG",
-            "200_8.0_1.4000_-3.0+.JPG",
-            "400_3.5_1.125_+1.0.JPG",
-            "400_3.5_1.250_0.0.JPG",
-            "400_3.5_1.500_-1.0.JPG",
-            "400_3.5_1.1000_-2.0.JPG",
-            "400_3.5_1.2000_-3.0.JPG",
-            "400_3.5_1.4000_-3.0+.JPG"
-        ]
-    }
 
-    const responseStatements = {
+    /*const responseStatements = {
 
         exp_0to0_2: "This exposure brings enough light to the subject.",
-    }
+    }*/
+
 	const photoSettings = {
 		ISO: '0',
 		aperture: '0',
@@ -169,6 +67,9 @@ function tutorialSetUp() {
     const pos2_2 = document.getElementById("exp_+2.2");
     const pos3 = document.getElementById("exp_+3.0");
     const pos3plus = document.getElementById("exp_arrowright");
+
+    let currentMatch;
+
 
     //getInitSettings
 	(function getInitSettings() {
@@ -218,34 +119,14 @@ function tutorialSetUp() {
 			if (evt.target.type === "radio" && evt.target.hasAttribute("disabled") === false) {
 				photoSettings.ISO = evt.target.value;
 				console.log("ISO: ", photoSettings.ISO);
-                //TEMPORARY LIMIT, if ISO is 400, limit aperture settings to 3.5
-                if(photoSettings.ISO === "400"){
-                    apertureGrp.querySelector("option[value='4.0']").setAttribute("disabled", "true");
-                    apertureGrp.querySelector("option[value='4.5']").setAttribute("disabled", "true");
-                    apertureGrp.querySelector("option[value='5.0']").setAttribute("disabled", "true");
-                    apertureGrp.querySelector("option[value='5.6']").setAttribute("disabled", "true");
-                    apertureGrp.querySelector("option[value='6.3']").setAttribute("disabled", "true");
-                    apertureGrp.querySelector("option[value='7.1']").setAttribute("disabled", "true");
-                    apertureGrp.querySelector("option[value='8.0']").setAttribute("disabled", "true");
-                }
-                else if(photoSettings.ISO === "200" || photoSettings.ISO === "100"){
-                    apertureGrp.querySelector("option[value='4.0']").removeAttribute("disabled");
-                    apertureGrp.querySelector("option[value='4.5']").removeAttribute("disabled");
-                    apertureGrp.querySelector("option[value='5.0']").removeAttribute("disabled");
-                    apertureGrp.querySelector("option[value='5.6']").removeAttribute("disabled");
-                    apertureGrp.querySelector("option[value='6.3']").removeAttribute("disabled");
-                    apertureGrp.querySelector("option[value='7.1']").removeAttribute("disabled");
-                    apertureGrp.querySelector("option[value='8.0']").removeAttribute("disabled");
-                }
-                //END TEMPORARY LIMIT
-
-                const match1 = getMatched(photoSettings);
-                console.log("match1: ", match1);
+               
+                currentMatch = getMatched(photoSettings);
+                console.log("isoGroup Clicked, currentMatch is: ", currentMatch);
                 //peel off exposure and set that in display and style the exposure section
-                if(match1){
+                /*if(match1){
 
                     setExposureSetting(match1);
-                }
+                }*/
 			}
 		});
 
@@ -255,12 +136,12 @@ function tutorialSetUp() {
 				photoSettings.aperture = evt.target.value;
 
 				console.log("aperture: ", photoSettings.aperture);
-                const match2 = getMatched(photoSettings);
-                console.log("match2: ", match2);
-                if(match2){
+                currentMatch = getMatched(photoSettings);
+                console.log("aperture Clicked, currentMatch is: ", currentMatch);
+                /*if(match2){
     
                     setExposureSetting(match2);
-                }
+                }*/
 			}
 		});
 
@@ -269,12 +150,12 @@ function tutorialSetUp() {
 			if (evt.target.type === "radio" && evt.target.hasAttribute("disabled") === false){
 				photoSettings.shutterSpeed = evt.target.value;
 				console.log("shutterSpeed: ", photoSettings.shutterSpeed);
-                const match3 = getMatched(photoSettings);
-                console.log("match3: ", match3);
-                if(match3){
+                currentMatch = getMatched(photoSettings);
+                console.log("shutterSpeed Clicked, currentMatch is: ", currentMatch);
+                /*if(match3){
     
                     setExposureSetting(match3);
-                }
+                }*/
 			}
 		});
 
@@ -292,8 +173,8 @@ function tutorialSetUp() {
 
     /**
      * name: takeAndShowPicture
-     * desc: This function will take the photo settings and compare them to the image files in the imgs folder.
-     * If a match is found, the image will be displayed in a modal with an explainer text.
+     * desc: This function will take the photo settings and compare them image information in the imgs object.
+     * If a match is found, the image will be displayed in a modal with the settings.
      * If no match is found, an alert will be displayed.
      */
 	function takeAndShowPicture() {
@@ -308,11 +189,12 @@ function tutorialSetUp() {
             }
 	    });
 
-        //send to getMatch function
-        const matchedImg = getMatched(photoSettings);
-        console.log("matchedImg: ", matchedImg);
+        //send to getMatch function if needed (no clicks, initial settings)
+        if(!currentMatch){
+            currentMatch = getMatched(photoSettings);
+        }
 
-        if(matchedImg){
+        if(currentMatch){
             //activate cover
             tutorialContentCover.style.display = "block";
             tutorialContentCover.removeAttribute('aria-hidden');
@@ -324,7 +206,7 @@ function tutorialSetUp() {
             //create header and heading
             const header = document.createElement("header");
             const heading= document.createElement("h2");
-            heading.innerText = "Image Feedback";
+            heading.innerText = "Snapped Image Result";
 
             //create dismiss button
             const dismissBtn = document.createElement("button");
@@ -338,6 +220,21 @@ function tutorialSetUp() {
                 tutorialContentCover.style.display = "none";
                 tutorialContentCover.setAttribute('aria-hidden', 'true');
             });
+
+            //create PDF request button
+            const pdfBtn = document.createElement("button");
+            pdfBtn.setAttribute("id", "pdfRequestButton");
+            pdfBtn.innerText = "Create PDF";
+
+            pdfBtn.addEventListener("click", function getPDF() {
+
+                //remove event listener
+                pdfBtn.removeEventListener("click", getPDF);
+
+                //call function to create PDF
+
+            });
+
             header.appendChild(heading);
             header.appendChild(dismissBtn);
 
@@ -371,26 +268,27 @@ function tutorialSetUp() {
             resultSettings.appendChild(settingsText);
 
             //create explainer text div
-            const resultExplainer = document.createElement("div");
+            /*const resultExplainer = document.createElement("div");
             resultExplainer.setAttribute("id", "resultExplainer");
-            const explainerText = document.createElement("p");
+            const explainerText = document.createElement("p");*/
             //sample explainer - create an object of explainer texts 
 
             //compare values here to the statement object and display the appropriate statement in the explainer section.
-            if(photoSettings.exposure === "0" || photoSettings.exposure === "+0.1" || photoSettings.exposure === "+0.2"){
+            /*if(photoSettings.exposure === "0" || photoSettings.exposure === "+0.1" || photoSettings.exposure === "+0.2"){
 
                 explainerText.innerText = responseStatements.exp_0to0_2;
             }
             else{
 
                 explainerText.innerText = "This image has enough light to capture the subject. The wings are blurry; to capture a freeze frame of the wings, try increasing your shutter speed.";
-            }
+            }*/
 
-            resultExplainer.appendChild(explainerText);
+            /*resultExplainer.appendChild(explainerText);*/
             resultModal.appendChild(header);
             resultModal.appendChild(resultImg);
             resultModal.appendChild(resultSettings);
-            resultModal.appendChild(resultExplainer);
+            resultModal.appendChild(pdfBtn);
+            //resultModal.appendChild(resultExplainer);
 
             //get computed height of the expTutorialWrapperDiv
             const wrapperHeight = tutorialWrapperDiv.clientHeight;
@@ -410,32 +308,28 @@ function tutorialSetUp() {
 
     function getMatched(_photoSettings){
 
-        //get names of all image files in the imgs folder:
-        //fetch the json file that contains the image file names
-        //parse the json file
-        //get the image file names
-        //return the image file names
-           //use testObjOfFiles for now...
-        const returnedResult = testObjOfFiles.imgs.find((img) => {
+        const returnedResult = imagesData.imgs.find((img) => {
             const imgEdited = img.replace('.jpg', '').replace('.JPG', '');
-            const imgArr = imgEdited.split("_");
+            const imgArray = imgEdited.split("_");
 
             //compare the photo settings to the image settings
             //if they match, return the image
             //if they don't match, return null or a message div
-            imgArr[2] = imgArr[2].replace(".", "/");
-            console.log("imgArr: ", imgArr);
+            console.log("imgArray: ", imgArray);
+            imgArray[2] = imgArray[2].replace(".", "/");
+            console.log("imgArray[2]: ", imgArray[2]);
 
             console.log('getMatched: DETECTED SETTINGS:');
-            console.log(imgArr[0], _photoSettings.ISO);
-            console.log(imgArr[1], _photoSettings.aperture);
-            console.log(imgArr[2], _photoSettings.shutterSpeed);
-            console.log(imgArr[3], _photoSettings.exposure);
+            console.log(imgArray[0], _photoSettings.ISO);
+            console.log(imgArray[1], _photoSettings.aperture);
+            console.log(imgArray[2], _photoSettings.shutterSpeed);
+            console.log(imgArray[3], _photoSettings.exposure);
 
             let returnItem = null;
-            if (imgArr[0] === _photoSettings.ISO && imgArr[1] === _photoSettings.aperture  && imgArr[2] === _photoSettings.shutterSpeed /*&& imgArr[3] === _photoSettings.exposure*/) {
+            if (imgArray[0] === _photoSettings.ISO && imgArray[1] === _photoSettings.aperture  && imgArray[2] === _photoSettings.shutterSpeed /*&& imgArray[3] === _photoSettings.exposure*/) {
                 console.log("matched image: ", img);
                 returnItem = img;
+                setExposureSetting(returnItem);
             }
 
             return returnItem;
@@ -563,6 +457,7 @@ function tutorialSetUp() {
                 neg0_1.classList.add("exp_sectionSetting");
                 break;
             case "0.0":
+            case "0":
                 zero.classList.add("exp_sectionSetting");
                 break;
             case "+0.1":
@@ -676,3 +571,6 @@ if (document.readyState === "complete") {
 	console.log("wait for dom content load...");
 	document.addEventListener("DOMContentLoaded", tutorialSetUp);
 }
+
+
+
