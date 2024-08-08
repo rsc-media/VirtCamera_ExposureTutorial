@@ -4,7 +4,7 @@
 */
 
 
-body_div{
+#expTut_body_div{
     display:flex;
     flex-flow:column nowrap;
     align-items:center;
