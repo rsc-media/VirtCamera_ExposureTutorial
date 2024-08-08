@@ -15,9 +15,7 @@ function tutorialSetUp() {
     .then(data => {
 
         imagesData = data;
-        console.log('running tutorialSetUp');
-
-
+       
         const photoSettings = {
             ISO: '0',
             Aperture: '0',
@@ -94,14 +92,6 @@ function tutorialSetUp() {
             }
 
             //shutter speed
-            /*const shutterNameGrp = document.querySelectorAll('[name="ss"]');
-            for (let j = 0; j < shutterNameGrp.length; j++) {
-                if (shutterNameGrp[j].checked) {
-                    photoSettings.Shutter_Speed = shutterNameGrp[j].value;
-                }
-            }*/
-
-            //shutter speed
             const shutterNameGrp = document.querySelector("#shutterSpeedSelect option[selected]");
             photoSettings.Shutter_Speed = shutterNameGrp.value;
 
@@ -111,10 +101,6 @@ function tutorialSetUp() {
 
             getMatched(photoSettings);//get and apply recorded exposure setting of this initial image
         }());
-
-        console.log('INITIAL SETTINGS of Photo Settings:');
-        console.log("photoSettings: ", photoSettings);
-        console.log('-------------------');
 
         //setListeners
         (function setListeners() {
@@ -154,10 +140,7 @@ function tutorialSetUp() {
          * If no match is found, an alert will be displayed.
          */
         function takeAndShowPicture() {
-            console.log("in takeAndShowPicture");
-            console.log("photoSettings: ", photoSettings);
-            console.log('currentMatch: ', currentMatch);
-
+           
             //remove event listeners from the snap button
             snapBtn.removeEventListener("click", takeAndShowPicture);
             snapBtn.removeEventListener("keyup", (evt) => {
@@ -221,7 +204,7 @@ function tutorialSetUp() {
 
                 //create result image
                 const resultImg = document.createElement("img");
-                resultImg.setAttribute("src", `imgs/${currentMatch}`);
+                resultImg.setAttribute("src", `https://rsc-media.github.io/VirtCamera_ExposureTutorial/imgs/${currentMatch}`);
                 resultImg.setAttribute("alt", "matched image");
                 resultImg.setAttribute("id", "resultImg");
 
@@ -287,18 +270,10 @@ function tutorialSetUp() {
                 const imgEdited = img.replace('.jpg', '').replace('.JPG', '');
                 const imgArray = imgEdited.split("_");
 
-                console.log("imgArray[2]: ", imgArray[2]);
-                console.log('getMatched: DETECTED SETTINGS:');
-                console.log(imgArray[0], _photoSettings.ISO);
-                console.log(imgArray[1], _photoSettings.Aperture);
-                console.log(imgArray[2], _photoSettings.Shutter_Speed);
-                console.log(imgArray[3], _photoSettings.Recorded_Exposure);
-                console.log('-------------------');
-
                 let returnItem = null;
                 //TODO: better way to compare settings?
                 if (imgArray[0] === _photoSettings.ISO && imgArray[1] === _photoSettings.Aperture  && imgArray[2] === _photoSettings.Shutter_Speed) {
-                    console.log("matched image: ", img);
+
                     returnItem = img;
                     setExposureSetting(returnItem);
                 }
@@ -327,7 +302,7 @@ function tutorialSetUp() {
         function setExposureSetting(_match){
 
             const exposureVal = _match.split("_")[3].replace(".jpg", "").replace(".JPG", "");
-            console.log("exposureVal: ", exposureVal);
+            
             //update object
             photoSettings.Recorded_Exposure = exposureVal;
             //display the exposure setting
@@ -570,7 +545,6 @@ function tutorialSetUp() {
 
             //IMAGE
             const matchedImg = _currentMatch;
-            console.log("matchedImg: ", matchedImg);
             const image = new Image();
             image.src = `imgs/${matchedImg}`;
 
@@ -623,10 +597,10 @@ function tutorialSetUp() {
 
 //check for page load
 if (document.readyState === "complete") {
-	console.log("complete");
+	
 	tutorialSetUp();
 } else {
-	console.log("wait for dom content load...");
+	
 	document.addEventListener("DOMContentLoaded", tutorialSetUp);
 }
 
