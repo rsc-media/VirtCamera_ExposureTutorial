@@ -17,7 +17,7 @@ body{
 
 header#expTutHeader {
 
-    color: #000000;
+    color: #ffffff;
     margin-top: 20px;
     margin-bottom: 15px;
     margin-left:10px;
@@ -43,6 +43,8 @@ header#expTutHeader h1 {
     background-color:#777;
     max-width:600px;
     min-width:200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 /*buttons*/
@@ -100,7 +102,7 @@ header#expTutHeader h1 {
     min-width:140px;
     min-height:140px;
     max-width:570px;
-    margin-top:5px;
+    /*margin-top:5px;*/
     margin-bottom:15px;
 
     /*scrolling*/
@@ -281,14 +283,14 @@ header#expTutHeader h1 {
     margin-top:15px;
 }
 
-#apertureSettings{
+#apertureSettings, #shutterSpeedSettings{
 
     margin-top:15px;
     /*margin-bottom:15px;*/
     background-color:tan;
 }
 
-#apertureSelect{
+#apertureSelect, #shutterSpeedSelect{
 
     width:100px;
     padding:10px;
@@ -299,7 +301,7 @@ header#expTutHeader h1 {
     margin-left:5px;
 }
 
-#apertureSelect option{
+#apertureSelect option, #shutterSpeedSelect option{
 
     font-size:1.2em;
     font-weight:bold;
@@ -311,7 +313,7 @@ header#expTutHeader h1 {
     align-items:center;
 }
 
-#apertureSelect option[disabled]{
+#apertureSelect option[disabled], shutterSpeedSelect option[disabled]{
 
     color:#888;
     background-color:#ddd;
@@ -349,16 +351,16 @@ header#expTutHeader h1 {
     flex-flow:column nowrap;
     /*align-items:center;*/
     justify-content:center;
-    background-color:pink;
+    background-color:tan;
     position:relative;
     top:-310%;
-    width:80%;
+    width:85%;
     height:80%;
     z-index:1000;
     border-radius:10px;
     border:4px solid #333;
     /*glow*/
-    box-shadow: 0 0 20px 20px #333;
+    box-shadow: 0 0 15px 15px #222;
 }
 
 #resultModalWrapper header{
@@ -367,12 +369,13 @@ header#expTutHeader h1 {
     flex-flow:row nowrap;
     align-items:center;
     justify-content:space-between;
-    background-color:lightblue;
+    background-color:#777;
     border-bottom:2px solid #333;
     border-radius:4px 4px 0 0;
     margin:0;
     width:100%;
-    height:50px;
+    height:60px;
+    color:#fff;
 }
 
 #resultModalWrapper h2{
@@ -389,18 +392,41 @@ header#expTutHeader h1 {
 
     width:45px;
     height:45px;
-    margin:3px;
+    /*margin:5px;
+    margin-left:8px;*/
     background-color:#f1f1f1;
     border:1px solid #ccc;
-    border-radius:50%;
+    border-radius:5px;
     cursor:pointer;
     font-size:18px;
-    font-family:Arial, sans-serif;
-    font-weight:bold;
-    color:#222;
     z-index:2;
 }
 
+#resultModalWrapper #pdfBtnWrapper{
+
+    display:flex;
+    flex-flow:row nowrap;
+    align-items:center;
+    justify-content:center;
+    margin-top:15px;
+    margin-bottom:10px;
+}
+
+#resultModalWrapper button#pdfRequestButton{
+
+    width: 60%;
+    height: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    color: #222;
+}
+
+#resultModalWrapper button#pdfRequestButton:hover{
+
+    background-color: #fff;
+    color:#000;
+    /*transition: background-color 0.3s ease;*/
+}
 
 #resultModalWrapper p{
 
@@ -415,6 +441,25 @@ header#expTutHeader h1 {
 
     padding:5px;
     font-size:.9em;
+    font-weight:bold;
+}
+
+#resultSettings{
+
+    display:flex;
+    flex-flow:row wrap;
+}
+
+#resultSettings div{
+
+    display:flex;
+    flex-flow:column nowrap;
+    /*align-items:center;*/
+    justify-content:center;
+    width:47%;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left:3%;
 }
 
 #expTutCover{
@@ -422,7 +467,7 @@ header#expTutHeader h1 {
     display:none;
     position:relative;
     background-color:rgba(0,0,0,0.8);
-    opacity:.3;
+    opacity:.6;
     position:fixed;
     top:0;
     left:0;
