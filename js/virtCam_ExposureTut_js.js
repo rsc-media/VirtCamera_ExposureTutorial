@@ -249,7 +249,6 @@ function tutorialSetUp() {
                 // get percentage of the wrapper height to determine placement of modal from the top
                 const percentFromHt = wrapperHeight * .7;
 
-                //append the result modal to the body for now
                 resultModal.style.top = `${-percentFromHt}px`;
 
                 //place focus on the dismiss button
@@ -546,7 +545,7 @@ function tutorialSetUp() {
             //IMAGE
             const matchedImg = _currentMatch;
             const image = new Image();
-            image.src = `imgs/${matchedImg}`;
+            image.src = `https://rsc-media.github.io/VirtCamera_ExposureTutorial/imgs/${matchedImg}`;
 
             image.onload = ()=> {
 
