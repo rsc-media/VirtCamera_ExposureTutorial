@@ -159,6 +159,13 @@ header#expTutHeader h1 {
     width:60%;
 }
 
+#expTutWrapper button#snapButton:disabled{
+
+    background-color:#ddd;
+    color:#888;
+    cursor:not-allowed;
+}
+
 /*Exposure meter*/
 #exposureMeter{
 

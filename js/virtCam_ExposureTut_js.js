@@ -15,7 +15,7 @@ function tutorialSetUp() {
     .then(data => {
 
         imagesData = data;
-       
+
         const photoSettings = {
             ISO: '0',
             Aperture: '0',
@@ -131,6 +131,9 @@ function tutorialSetUp() {
             addSnapButtonListeners();
         }());
         //end setListeners
+
+        //remove snap button disabled attribute
+        snapBtn.removeAttribute("disabled");
 
 
         /**
