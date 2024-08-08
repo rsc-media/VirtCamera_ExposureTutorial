@@ -106,8 +106,8 @@ header#expTutHeader h1 {
     margin-bottom:15px;
 
     /*scrolling*/
-    position:sticky;
-    top:2px;
+    /*position:sticky;
+    top:2px;*/
 }
 
 #sceneSubject img, #sceneSubject video{
